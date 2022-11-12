@@ -120,7 +120,7 @@ const Map = () => {
                     style={geolocateControlStyle}
                     positionOptions={{enableHighAccuracy: true}}
                     trackUserLocation={true}
-                    auto
+                    // auto
                 />
                 <NavigationControl className={classes.navControlStyle}/>
                 {searchBtnShow && <Button variant="contained" className={classes.reSearchBtn}
