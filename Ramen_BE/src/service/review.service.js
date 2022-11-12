@@ -35,13 +35,14 @@ reviewService.addReview = async (storeId, userId, review, rating) => {
             author: userId,
             store: storeId
         }, session)
-
+        log.info("new review: ", newReview);
 
         const newReviewId = newReview[0]._id;
         const storeRelation = await storeService.addStoreReview(storeId, newReviewId, session)
         const user = await userService.addUserReview(userId, newReviewId, session)
 
         if (!storeRelation || !user) {
+            log.info(storeRelation)
             throw new Error("store or user not found")
         }
         await storeService.changeStoreRating(storeId, session);

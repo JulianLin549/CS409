@@ -35,8 +35,6 @@ module.exports = (passport) => {
                 return done(null, false);
             }
             req.user = user;
-            console.log(user)
-
             return done(null, user);
         } catch(err) {
             log.error(err);

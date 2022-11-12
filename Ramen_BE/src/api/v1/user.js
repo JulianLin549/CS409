@@ -16,7 +16,6 @@ router.post('/login',
             const username = req.body.username;
             const password = req.body.password;
             const user = await User.findOne({'username': username});
-            console.log(user, password, username)
             if (user == null || user.password !== password) {
                 return response.unAuthorized(res, "wrong user!");
             }
