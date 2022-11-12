@@ -1,0 +1,16 @@
+
+.spinner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+    width: 60px;
+}
+
+.loading-message {
+    text-align: center;
+    float: none;
+    color: #787878;
+    font-family: JFOpen;
+    font-size: 20px;
+}

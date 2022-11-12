@@ -1,0 +1,53 @@
+.footer-bg {
+    margin-top: 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    max-height: 100vh;
+    background: #152F4F;
+    color: white;
+    width:100%;
+}
+.footer {
+    padding: 50px 0;
+    width: 80%;
+}
+
+.footer .links ul {
+    list-style-type: none;
+}
+
+.footer .links li a {
+    color: white;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+}
+
+.footer .links li a:hover {
+    text-decoration: none;
+    color: #4180CB;
+}
+
+.footer .join-us svg {
+    font-size: 1.25rem;
+}
+
+.footer .join-us a {
+    color: white;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+}
+
+
+
+.footer .join-us a:hover {
+    color: #4180CB;
+}
+
+.footer .location i {
+    font-size: 18px;
+}
+
+.footer .copyright p {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

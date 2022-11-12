@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "CPFont";
+  src: url("./static/CPFont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JFOpen";
+  src: url("./static/JFOpen.ttf") format("truetype");
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #faf8f8;
+  /*background: #fcf9f6;*/
+}
+.App {
+  background: #faf8f8;
+  /*background: #fcf9f6;*/
+}

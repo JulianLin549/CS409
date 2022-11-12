@@ -1,0 +1,9 @@
+.MuiPaper-root > ul > a {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.MuiPaper-root > ul > a:hover {
+    color: rgba(0, 0, 0, 0.87);
+}
+

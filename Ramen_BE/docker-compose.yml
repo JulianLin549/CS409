@@ -1,0 +1,141 @@
+version: "3.8"
+
+services:
+  # mongo-setup:
+  #   container_name: mongo-setup
+  #   image: mongo:latest
+  #   restart: on-failure
+  #   networks:
+  #     default:
+  #   volumes:
+  #     - ./rs-setup:/rs-setup
+  #   entrypoint: ["bash", "/rs-setup/setup.sh"]
+  #   depends_on:
+  #     - mongo1
+  #     - mongo2
+  #     - mongo3
+  # mongo-setup:
+  #   image: mongo
+  #   # this container will exit after executing the command
+  #   restart: "no"
+  #   depends_on:
+  #     - mongo1
+  #     - mongo2
+  #     - mongo3
+  #   command: >
+  #     mongo --host mongo1:27017 --eval 
+  #     '
+  #     db = (new Mongo("localhost:27017")).getDB("test");
+  #     config = {
+  #     "_id" : "my-mongo-set",
+  #     "members" : [
+  #       {
+  #         "_id" : 0,
+  #         "host" : "mongo1:27017"
+  #       },
+  #       {
+  #         "_id" : 1,
+  #         "host" : "mongo2:27017"
+  #       },
+  #       {
+  #         "_id" : 2,
+  #         "host" : "mongo3:27017"
+  #       }
+  #     ]
+  #     };
+  #     rs.initiate(config);
+  #     '      
+
+  # mongo1:
+  #   hostname: mongo1
+  #   container_name: localmongo1
+  #   image: mongo:latest
+  #   expose:
+  #     - 27017
+  #   ports:
+  #     - 27017:27017
+  #   restart: always
+  #   entrypoint:
+  #     [
+  #         "/usr/bin/mongod",
+  #         "--bind_ip_all",
+  #         "--replSet",
+  #         "rs0",
+  #         "--journal",
+  #         "--dbpath",
+  #         "/data/db"
+  #     ]
+  #   volumes:
+  #     - ./volumes/mongo/data1/db:/data/db
+  #     - ./volumes/mongo/data1/configdb:/data/configdb
+  #   networks:
+  #     default:
+
+  # mongo2:
+  #   hostname: mongo2
+  #   container_name: localmongo2
+  #   image: mongo:latest
+  #   expose:
+  #     - 27017
+  #   ports:
+  #     - 27018:27017
+  #   restart: always
+  #   entrypoint:
+  #     [
+  #         "/usr/bin/mongod",
+  #         "--bind_ip_all",
+  #         "--replSet",
+  #         "rs0",
+  #         "--journal",
+  #         "--dbpath",
+  #         "/data/db"
+  #     ]
+  #   volumes:
+  #     - ./volumes/mongo/data2/db:/data/db
+  #     - ./volumes/mongo/data2/configdb:/data/configdb
+  #   networks:
+  #     default:
+
+  # mongo3:
+  #   hostname: mongo3
+  #   container_name: localmongo3
+  #   image: mongo:latest
+  #   expose:
+  #     - 27017
+  #   ports:
+  #     - 27019:27017
+  #   restart: always
+  #   entrypoint:
+  #     [
+  #         "/usr/bin/mongod",
+  #         "--bind_ip_all",
+  #         "--replSet",
+  #         "rs0",
+  #         "--journal",
+  #         "--dbpath",
+  #         "/data/db"
+  #     ]
+  #   volumes:
+  #     - ./volumes/mongo/data3/db:/data/db
+  #     - ./volumes/mongo/data3/configdb:/data/configdb
+  #   networks:
+  #     default:
+
+  # mongo_seed:
+  #   image: mongo:latest
+  #   links:
+  #     - mongo1
+  #   volumes:
+  #     - ./mongo-seed:/mongo-seed
+  #   networks:
+  #     default:
+  #   command:
+  #     bash -c "chmod +x /mongo-seed/restore.sh && /mongo-seed/restore.sh"
+  #   depends_on:
+  #     - mongo-setup
+
+  redis:
+    image: redis:5.0.4-alpine
+    command: redis-server --requirepass password
+    ports:
+      - '6379:6379'
