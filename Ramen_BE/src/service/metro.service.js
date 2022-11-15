@@ -1,5 +1,4 @@
-const redisClient = require('../db/connectRedis'),
-    storeService = require('./store.service'),
+const storeService = require('./store.service'),
     metroRepository = require('../repository/metro.repository'),
     log = require('../modules/logger');
 const metroService = {}
@@ -7,12 +6,7 @@ const metroService = {}
 metroService.getStoresNearMetro = async (city, stationCode, maxDistance) => {
     try {
         const key = `metro:storesNearMetro:${city}-${stationCode}`
-        let cachedData = await redisClient.get(key);
-
-        if (cachedData) {
-            return JSON.parse(cachedData)
-        }
-
+        
         let metro = await metroRepository.findOne(city, stationCode)
 
         if (!metro) {
@@ -22,7 +16,6 @@ metroService.getStoresNearMetro = async (city, stationCode, maxDistance) => {
         const metroCoords = metro.location.coordinates;
         const foundStore = await storeService.getStoresByDistance(metroCoords, maxDistance)
 
-        await redisClient.set(key, JSON.stringify(foundStore));
         return foundStore
 
     } catch (err) {
@@ -35,11 +28,6 @@ metroService.getStoresNearMetro = async (city, stationCode, maxDistance) => {
 metroService.getMetroCloseToStore = async (storeId, maxDistance) => {
     try {
         const key = `metro:metroNearStore:${storeId}`
-        let cachedData = await redisClient.get(key);
-
-        if (cachedData) {
-            return JSON.parse(cachedData)
-        }
 
         const foundStore = await storeService.getStoreById(storeId);
 
@@ -59,7 +47,6 @@ metroService.getMetroCloseToStore = async (storeId, maxDistance) => {
                 distance: station.distance.toFixed(2)
             }
         })
-        await redisClient.set(key, JSON.stringify(resultStations));
         return resultStations;
 
     } catch (err) {

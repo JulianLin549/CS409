@@ -97,8 +97,8 @@ const Map = () => {
             longitude: lng,
             latitude: lat,
             zoom: 14,
-            transitionDuration: 1000,
-            transitionInterpolator: new FlyToInterpolator(),
+            transitionDuration: 1000
+            // transitionInterpolator: new FlyToInterpolator(),
         });
     }
 

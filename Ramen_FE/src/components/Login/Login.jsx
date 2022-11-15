@@ -1,4 +1,3 @@
-import FacebookLogin from "react-facebook-login";
 import {useState} from "react";
 import './Login.css';
 import axios from 'axios';
