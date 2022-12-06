@@ -1,6 +1,6 @@
-import {Divider, Paper, Typography, TextField, Box, Button} from "@material-ui/core";
+import {Divider, Paper, Typography, TextField, Box} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import Login from "./Login";
+import Signup from "./Signup";
 import {ChangeEvent, useState} from "react";
 import {useUser} from "../../Context/UserContext";
 import {useHistory, useLocation} from "react-router-dom";
@@ -31,10 +31,7 @@ const useStyles = makeStyles(() => ({
         fontSize: "1rem",
         fontWeight: 400,
         margin: "50px",
-        whiteSpace: "pre-line",
-        display: "flex",
-        flexDirection: 'column',
-        alignItems: "center",
+        whiteSpace: "pre-line"
     },
     checkBox: {
         margin: "10px 30px",
@@ -43,8 +40,7 @@ const useStyles = makeStyles(() => ({
         flex: "0 0 auto",
         display: "flex",
         padding: 8,
-        alignItems: "center",
-        flexDirection: 'row-reverse'
+        flexDirection: "row-reverse",
     },
     loginBtn: {
         right: 10
@@ -85,52 +81,42 @@ const LoginPage = () => {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Typography className={classes.title}>
-                    Login
+                    Signup
                 </Typography>
                 <Divider/>
                 <div className={classes.content}>
-                    <Box
-                        m={4} 
-                        sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '90%',
-                    }} >
-                        <TextField
-                            required
-                            onChange={handleUserNameChange}
-                            id="username"
-                            label="User Name"
-                            />
-                    </Box>
-                    <Box
-                        m={4} 
-                        sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '90%',
-                    }} >
+                <Box
+                    m={4} 
+                    sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                }} >
                     <TextField
-                            required
-                            onChange={handlePasswordChange}
-                            id="password"
-                            label="Password"
-                            type="password"
-                            />
-                    </Box>
+                        required
+                        onChange={handleUserNameChange}
+                        id="username"
+                        label="User Name"
+                        />
+                </Box>
+                <Box
+                    m={4} 
+                    sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                }} >
+                   <TextField
+                        required
+                        onChange={handlePasswordChange}
+                        id="password"
+                        label="Password"
+                        type="password"
+                        />
+                </Box>
                 </div>
 
                 <Divider/>
                 <div className={classes.actions}>
-                    <Login username={username} password={password}/>
-                    <Button
-                        variant="contained"
-                        onClick ={()=>{
-                            history.push('/signup')
-                        }}
-                    >
-                        Signup
-                    </Button>
+                    <Signup username={username} password={password}/>
                 </div>
             </Paper>
         </div>

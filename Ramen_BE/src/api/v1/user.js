@@ -8,6 +8,7 @@ const express = require('express'),
     pagination = require('../../utils/pagination'),
     config = require("../../config/global-config"),
     User = require('../../models/user');
+    bcrypt = require("bcrypt")
 
 
 router.post('/login',
@@ -16,9 +17,38 @@ router.post('/login',
             const username = req.body.username;
             const password = req.body.password;
             const user = await User.findOne({'username': username});
-            if (user == null || user.password !== password) {
-                return response.unAuthorized(res, "wrong user!");
+            if (user == null) {
+                return response.unAuthorized(res, "Not found user!");
             }
+            const isValid =  await bcrypt.compare(password, user.password);
+            if (!isValid) {
+                return response.unAuthorized(res, "Wrong username or password!");
+            }
+            const token = await userService.signToken(user);
+            response.success(res, {user, token});
+        } catch (error) {
+            log.info(error)
+            response.badRequest(res, error);
+        }
+    }
+)
+
+router.post('/signup',
+    async (req, res) => {
+        try {
+            const username = req.body.username;
+            const password = req.body.password;
+            const salt = await bcrypt.genSalt(10);
+            let user = await User.findOne({'username': username});
+            if (user != null) {
+                return response.badRequest(res, "Username has been used!");
+            }
+            const hashedPassword = await bcrypt.hash(password, salt);
+            user = new User({
+                username: username,
+                password: hashedPassword,
+            })
+            user = await user.save();
             const token = await userService.signToken(user);
             response.success(res, {user, token});
         } catch (error) {

@@ -27,7 +27,7 @@ import Notifications from "./components/Notifications/Notifications";
 import UserReviewed from "./components/UserReviewed/UserReviewed";
 import UserInfo from "./components/SettingAndInfo/UserInfo";
 import UserSetting from "./components/SettingAndInfo/UserSetting";
-
+import SignupPage from "./components/Signup/SignupPage";
 
 const useStyles = makeStyles(() => ({
         container: {
@@ -46,7 +46,6 @@ function App() {
     const classes = useStyles();
     useEffect(() => {
         document.title = "台灣拉麵倶樂部";
-
     }, []);
     NetworkInterceptors();
     return (
@@ -82,6 +81,10 @@ function App() {
 
                                 <Route path="/login">
                                     <LoginPage/>
+                                </Route>
+
+                                <Route path="/signup">
+                                    <SignupPage/>
                                 </Route>
 
                                 {/*user section*/}
