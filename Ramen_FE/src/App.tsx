@@ -43,7 +43,7 @@ const useStyles = makeStyles(() => ({
 function App() {
     const classes = useStyles();
     useEffect(() => {
-        document.title = "台灣拉麵倶樂部";
+        document.title = "Asian Food Club";
     }, []);
     NetworkInterceptors();
     return (
