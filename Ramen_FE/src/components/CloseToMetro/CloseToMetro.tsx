@@ -38,7 +38,7 @@ const CloseToMetro = (props: Props) => {
     return data?.stations && data?.stations.length > 0 ?
         <Box>
             <Typography color={'textSecondary'} variant={'body2'}>
-                鄰近捷運站：
+                Nearby metro stations：
             </Typography>
             {data.stations.map(station => <MetroTag station={station}/>)}
         </Box> : null

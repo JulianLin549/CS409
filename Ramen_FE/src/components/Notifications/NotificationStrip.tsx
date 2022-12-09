@@ -58,7 +58,7 @@ const NotificationStrip = (props: Props) => {
                 >
                     <ListItemText primary={notification.storeName}/>
                     <Typography color={'textSecondary'} variant={'body2'}>
-                        {`更新於 ${dt.toRelative()}`}
+                        {`Updated ${dt.toRelative()}`}
                     </Typography>
                 </ListItem>
             </List>

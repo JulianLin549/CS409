@@ -74,10 +74,10 @@ const DeleteReviewModal = (props: Props) => {
                 requestBody: {reviewId, storeId},
             };
             await mutateAsync(reqProps);
-            showSnackBar(`成功刪除評論`, 'success');
+            showSnackBar(`Deleted successfully`, 'success');
             history.go(0);
         } catch (e) {
-            showSnackBar(`刪除評論失敗`, 'error')
+            showSnackBar(`Failed to delete`, 'error')
         } finally {
             props.onClose();
         }
@@ -89,7 +89,7 @@ const DeleteReviewModal = (props: Props) => {
     return (
         <Dialog open={props.open} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
             <div className={classes.dialog}>
-                <DialogTitle id="form-dialog-title">{`確認刪除評論，這個動作無法返回`}</DialogTitle>
+                <DialogTitle id="form-dialog-title">{`Delete the dialog, can't recall.`}</DialogTitle>
                 <DialogContent>
                     <DialogContentText className={classes.storeNameOuter}>
                         <ReactQuill
@@ -103,10 +103,10 @@ const DeleteReviewModal = (props: Props) => {
                 </DialogContent>
                 <DialogActions className={classes.bottom}>
                     <Button variant="outlined" color="secondary" onClick={handleDeleteReview}>
-                        刪除
+                        Delete
                     </Button>
                     <Button variant='text' onClick={props.onClose} className={classes.btn}>
-                        取消
+                        Cancel
                     </Button>
                 </DialogActions>
             </div>

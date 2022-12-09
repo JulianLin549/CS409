@@ -126,7 +126,7 @@ const RamenNavbar = () => {
                     <Hidden smDown>
                         <Button size="large" component={RouterLink} className={classes.title} to="/">
                             <img src="/images/ramen.png" alt="" width="32px" height="32px" className="mx-2"/>
-                            台灣拉麵倶樂部
+                            Asian food club
                         </Button>
                         <SubCategorySection/>
                     </Hidden>

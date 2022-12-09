@@ -42,7 +42,7 @@ export default function CustomTreeView(props: Props) {
                 <Divider/>
                 <StyledTreeItem
                     nodeId="1"
-                    labelText="店家列表"
+                    labelText="Store List"
                     to="/stores"
                     labelIconFA={faStoreAlt}
                     onClick={toggleDrawerOpen}
@@ -51,12 +51,12 @@ export default function CustomTreeView(props: Props) {
 
                 <StyledTreeItemHead
                     nodeId="10"
-                    labelText="地圖"
+                    labelText="Map"
                     labelIconFA={faMapMarkedAlt}
                 >
                     <StyledTreeItem
                         nodeId="11"
-                        labelText="地圖"
+                        labelText="Map"
                         to="/map"
                         labelIconFA={faMapMarkedAlt}
                         onClick={toggleDrawerOpen}

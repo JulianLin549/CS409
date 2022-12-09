@@ -56,8 +56,8 @@ const NotFound = () => {
                 <Divider/>
                 <div className={classes.content}>
                     <Typography>
-                        {`糟糕！似乎無法找到您要求的資源 \n
-                        如果這個錯誤頁面常常發生或是您是資源的擁有者，請點擊下方連結回報問題，或是直接Email至服務信箱 \n
+                        {`Failed to find resources \n
+                        If you are the owner, please report using the link or email below. \n
                         ${process.env.REACT_APP_SUPPORT_EMAIL}`}
 
                     </Typography>
@@ -65,12 +65,12 @@ const NotFound = () => {
                     <div className={classes.actions}>
                         <Box m={1}>
                             <Button size={'large'} variant="outlined" color="primary">
-                                回報問題
+                                Submit
                             </Button>
                         </Box>
                         <Box m={1}>
                             <Button size={'large'} variant="outlined" color="primary" onClick={() => history.go(-1)}>
-                                返回上一頁
+                                Back
                             </Button>
                         </Box>
                     </div>

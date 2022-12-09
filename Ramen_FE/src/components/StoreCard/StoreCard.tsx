@@ -99,7 +99,7 @@ const StoreCard = (props: Props) => {
     const store = props.store;
     const classes = useStyles();
     const {user} = useUser()!;
-    const rating = store.rating ? store.rating.toFixed(1) : "無評分";
+    const rating = store.rating ? store.rating.toFixed(1) : "No rating";
 
     const descriptionTrimmer = (description: string) => {
         if (description.length > 200) {
@@ -152,7 +152,7 @@ const StoreCard = (props: Props) => {
                             size={'small'}
                             to={`stores/${store._id}`}
                         >
-                            顯示更多
+                            Show more
                         </Button>
                     </Box>
                 </CardContent>

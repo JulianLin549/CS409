@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
 }))
 const Tags = () => {
     const classes = useStyles();
-    const tags = ["拉麵", "雞白湯", "舒肥", "叉燒"];
+    const tags = ["Ramen", "Tori Paitan", "Sous vide", "Char siu"];
     return (
         <div>
             {tags.map(tag => <Chip label={tag} className={classes.tag}/>)}

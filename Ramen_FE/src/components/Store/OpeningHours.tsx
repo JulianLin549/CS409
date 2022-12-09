@@ -2,46 +2,46 @@
 const OpeningHours = () => {
     return (
         <div>
-            <h5>營業時間</h5>
+            <h5>Hours</h5>
             <table className="y0skZc-jyrRxf-Tydcue NVpwyf-qJTHM-ibL1re">
                 <tbody>
                 <tr>
                     <th>
-                        <div>星期六</div>
+                        <div>Saturday</div>
                     </th>
                     <td>
                         <ul>
                             <li>10:00–17:00</li>
                         </ul>
                         <div>
-                            <span>假日營業時間</span>
-                            <span>營業時間可能不同</span></div>
+                            <span>Holiday hours</span>
+                            <span>might diff from the normal hours</span></div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <div>星期日</div>
+                        <div>Sunday</div>
                     </th>
                     <td>
                         <ul>
-                            <li>休息</li>
+                            <li>Closed</li>
                         </ul>
                         <div>
-                            <span>假日營業時間</span>
-                            <span>營業時間可能不同</span></div>
+                            <span>Holiday hours</span>
+                            <span>might diff from the normal hours</span></div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <div>星期一</div>
-                        <div>(陣亡將士紀念日)</div>
+                        <div>Monday</div>
+                        <div>Veterans days</div>
                     </th>
                     <td>
                         <ul>
                             <li>10:00–19:00</li>
                         </ul>
-                        <div><span>假日營業時間</span> <span
-                        >營業時間可能不同</span></div>
+                        <div><span>Holiday hours</span>
+                            <span>might diff from the normal hours</span></div>
                     </td>
                 </tr>
 

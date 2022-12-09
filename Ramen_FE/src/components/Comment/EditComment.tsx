@@ -50,10 +50,10 @@ const EditComment = (props: Props) => {
             };
             await mutateAsync(reqProps);
             setCommentText(editedComment);
-            showSnackBar(`成功更新留言`, 'success');
+            showSnackBar(`Success`, 'success');
             setEditSectionShow(false);
         } catch (error) {
-            showSnackBar(`更新留言失敗`, 'error');
+            showSnackBar(`Fail`, 'error');
             setEditSectionShow(false);
         }
     }
@@ -74,10 +74,10 @@ const EditComment = (props: Props) => {
 
             <Box className={classes.buttons} m={1}>
                 <Button onClick={() => setEditSectionShow(false)} className={classes.cancelButton}>
-                    取消
+                    Cancel
                 </Button>
                 <Button variant="outlined" color="primary" onClick={handleUpdate} className={classes.submitButton}>
-                    送出
+                    Submit
                 </Button>
             </Box>
 

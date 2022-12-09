@@ -60,10 +60,10 @@ const AddCommentModal = (props: Props) => {
                 },
             };
             await mutateAsync(reqProps);
-            showSnackBar(`成功新增留言`, 'success');
+            showSnackBar(`Success`, 'success');
             window.location.reload();
         } catch (e) {
-            showSnackBar(`新增留言失敗`, 'error');
+            showSnackBar(`Fail`, 'error');
         }
     }
 
@@ -86,14 +86,14 @@ const AddCommentModal = (props: Props) => {
                         onFocus={() => setIsInputFocus(true)}
                         onBlur={() => setIsInputFocus(false)}
                         error={commentBtnDisabled && isInputFocus}
-                        helperText={commentBtnDisabled && isInputFocus ? '輸入不能為空' : ''}
-                        defaultValue={"發表些店家的最新資訊！"}
+                        helperText={commentBtnDisabled && isInputFocus ? 'Input must be non-empty' : ''}
+                        defaultValue={"Latest news！"}
                     />
                 </Grid>
 
                 <Button variant="outlined" disabled={commentBtnDisabled} className={classes.commentBtn}
                         onClick={addComment}>
-                    留言
+                    Leave a message
                 </Button>
 
             </Grid>

@@ -57,7 +57,7 @@ const ReviewStrip = (props: Props) => {
             <List className={classes.root}>
                 <ListItem button onClick={handleClick}>
                     <ListItemText primary={store.name}
-                                  secondary={`評論更新於 ${dt.toRelative()}`}/>
+                                  secondary={`Updated ${dt.toRelative()}`}/>
                     <Rating name={'rating'} value={store.rating} size={'small'} precision={0.1}
                             readOnly/>
                     {open ? <ExpandLess/> : <ExpandMore/>}
@@ -66,7 +66,7 @@ const ReviewStrip = (props: Props) => {
                     <Divider/>
                     <Box m={2}>
                         <Typography color={'textPrimary'} variant={'body1'}>
-                            您的評論：
+                            Your review：
                         </Typography>
                     </Box>
                     <List component="div" disablePadding>

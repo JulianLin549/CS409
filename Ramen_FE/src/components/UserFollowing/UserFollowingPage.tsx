@@ -76,11 +76,11 @@ const UserFollowingPage = () => {
     const {data} = useFetch<Stores>(options);
     return data?.stores ?
         <Box mb={5}>
-            <p className={classes.header}>追蹤清單</p>
+            <p className={classes.header}>Following List</p>
             {
                 data.stores.length > 0 ? data.stores.map((store: IStore) => {
                     return <FollowingStrip store={store}/>
-                }) : <p className={classes.text}>沒有追蹤清單</p>
+                }) : <p className={classes.text}>No Following List</p>
             }
             <CustomPagination pages={data.pages} page={page} handlePageChange={handlePageChange}/>
         </Box> : null

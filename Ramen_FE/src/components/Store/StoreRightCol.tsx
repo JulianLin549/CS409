@@ -102,7 +102,7 @@ const StoreRightCol = (props: Props) => {
                     </Typography>
                     <Rating name={'rating'} value={store.rating} size={'small'} precision={0.1} readOnly/>
                     <Typography variant={'body2'} onClick={gotoComment} className={classes.reviewCount}>
-                        {reviewLength} 則評論
+                        {reviewLength} Review
                     </Typography>
                 </Box>
 

@@ -81,7 +81,7 @@ const UserReviewed = () => {
             {
                 data.reviews.length > 0 ? data.reviews.map((review: IReview) => {
                     return <ReviewStrip review={review}/>
-                }) : <p className={classes.text}>沒有評論店家</p>
+                }) : <p className={classes.text}>No reviews</p>
             }
             <CustomPagination pages={data.pages} page={page} handlePageChange={handlePageChange}/>
         </Box> : null

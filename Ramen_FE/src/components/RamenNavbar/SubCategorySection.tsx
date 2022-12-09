@@ -52,12 +52,12 @@ const SubCategorySection = () => {
             <Divider className={classes.divider} orientation="vertical"/>
 
             <Button component={RouterLink} className={classes.selection} to="/stores">
-                店家列表
+                Store List
             </Button>
             <Divider className={classes.divider} orientation="vertical"/>
 
             <Button className={classes.selection} onClick={handleClick}>
-                地圖
+                Map
                 <ExpandMoreIcon/>
             </Button>
 
@@ -72,7 +72,7 @@ const SubCategorySection = () => {
                     <ListItemIcon className={classes.listItemIcon}>
                         <img className={classes.imageIcon} src={TaiwanIcon} alt={"Taiwan icon"}/>
                     </ListItemIcon>
-                    <ListItemText primary="地圖"/>
+                    <ListItemText primary="MAP"/>
                 </MenuItem>
             </StyledMenu>
         </>

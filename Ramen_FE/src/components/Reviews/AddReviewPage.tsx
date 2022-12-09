@@ -65,7 +65,7 @@ const AddReviewPage = () => {
     const {id} = useParams<ParamTypes>()
 
     if (!id.match(/[a-fA-F0-9]{24}/g)) {
-        showSnackBar('新增評論的店家ID錯誤', 'error');
+        showSnackBar('Owner Id incorrect', 'error');
         history.push("/stores");
     }
 
@@ -93,12 +93,12 @@ const AddReviewPage = () => {
 
         const onSubmit = async () => {
             if (rating === null) {
-                showSnackBar(`評分不可為空`, 'error');
+                showSnackBar(`Rating empty`, 'error');
                 return;
             }
             let review = window.localStorage.getItem(storageKey);
             if (review === null || review === "<p><br></p>") {
-                showSnackBar(`評論不可為空！`, 'error');
+                showSnackBar(`Review empty！`, 'error');
                 return;
             }
             const reqProps = {
@@ -112,11 +112,11 @@ const AddReviewPage = () => {
             let response = await mutateAsync(reqProps);
 
             if (response.status === 200) {
-                showSnackBar(`上傳評論成功`, 'success');
+                showSnackBar(`Success`, 'success');
                 window.localStorage.removeItem(storageKey);
                 history.push(`/stores/${id}`)
             } else {
-                showSnackBar(`上傳評論失敗`, 'error');
+                showSnackBar(`Fail`, 'error');
                 return new Error()
             }
 
@@ -125,11 +125,11 @@ const AddReviewPage = () => {
         return <Paper className={classes.root}>
             <Button variant="outlined" className={classes.goBackBtn} onClick={()=>history.push(`/stores/${id}`)}>
                 <FontAwesomeIcon icon={faAngleDoubleLeft}/>
-                <span className={classes.goBackText}>返回店家</span>
+                <span className={classes.goBackText}>Back to store</span>
             </Button>
             <Box>
                 <h3>
-                    新增評論
+                    New comments
                 </h3>
                 <Typography variant="body1" color="textSecondary" component="p">
                     {store.name}
@@ -137,7 +137,7 @@ const AddReviewPage = () => {
             </Box>
             <Box mt={3} mb={3}>
                 <Typography variant="body1" color="textPrimary" component="p" className={classes.ratingTitle}>
-                    評分：
+                    Rating：
                 </Typography>
                 <Rating
                     name="customized-empty"
@@ -149,7 +149,7 @@ const AddReviewPage = () => {
                     emptyIcon={<StarBorderIcon fontSize="inherit"/>}
                 />
                 {!rating && <Typography variant="caption" component="p" className={classes.ratingText}>
-                    請輸入評分
+                    Input your rating
                 </Typography>}
             </Box>
             <QuillEditor
@@ -157,10 +157,10 @@ const AddReviewPage = () => {
             />
             <Box mt={2} mb={2}>
                 <Button variant="outlined" color="primary" className={classes.submitBtn} onClick={onSubmit}>
-                    送出
+                    Submit
                 </Button>
                 <Button variant="outlined" color="default" className={classes.cancelBtn}>
-                    取消
+                    Cancel
                 </Button>
             </Box>
 
@@ -168,7 +168,7 @@ const AddReviewPage = () => {
             <Dialog open={isLoading}>
                 <DialogContent>
                     <DialogContentText id="loading">
-                        上傳中，請稍等
+                        Uploading...
                         <LoadingIcon/>
                     </DialogContentText>
                 </DialogContent>

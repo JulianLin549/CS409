@@ -59,7 +59,7 @@ const StoreModal = (props: Props) => {
             </CardActionArea>
             <CardActions>
                 <Button component={Link} to={'/'} size="medium" color="primary" className={classes.moreNtn} >
-                    查看更多
+                    Show more.
                 </Button>
             </CardActions>
         </Card>

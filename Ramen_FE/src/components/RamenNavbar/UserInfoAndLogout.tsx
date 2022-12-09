@@ -81,14 +81,14 @@ const UserInfoAndLogout = () => {
                     <ListItemIcon className={classes.listItemIcon}>
                         <InfoIcon className={classes.imageIcon}/>
                     </ListItemIcon>
-                    <ListItemText primary="個人資料"/>
+                    <ListItemText primary="Info"/>
                 </MenuItem>
                 <Divider className={classes.divider} orientation="horizontal"/>
                 <MenuItem onClick={handleLogout}>
                     <ListItemIcon className={classes.listItemIcon}>
                         <ExitToAppIcon className={classes.imageIcon}/>
                     </ListItemIcon>
-                    <ListItemText primary="登出"/>
+                    <ListItemText primary="Logout"/>
                 </MenuItem>
             </StyledMenu>
         </div>

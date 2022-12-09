@@ -28,7 +28,7 @@ const Loading = (props: Props) => {
     return (
         <div className=" loading">
             <LoadingSpinner className={classes.spinner}/>
-            <p className={classes.loadingMessage}>載入中，請稍等</p>
+            <p className={classes.loadingMessage}>Loading...</p>
         </div>
     );
 };

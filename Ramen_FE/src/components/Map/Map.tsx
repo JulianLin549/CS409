@@ -125,7 +125,7 @@ const Map = () => {
                 />
                 <NavigationControl className={classes.navControlStyle}/>
                 {searchBtnShow && <Button variant="contained" className={classes.reSearchBtn}
-                                          onClick={handleSearchBtnClick}> 搜尋這個區域
+                                          onClick={handleSearchBtnClick}> Search this region.
                 </Button>}
                 <MapContent mapBound={mapBound!} flyTo={flyTo}/>
 

@@ -93,7 +93,7 @@ const StoreLeftCol = (props: Props) => {
 
             <Button variant="outlined" className={classes.backButton} onClick={() => history.push("/stores")}>
                 <FontAwesomeIcon icon={faAngleDoubleLeft}/>
-                <span className={classes.back}>返回店家列表</span>
+                <span className={classes.back}>Go back to store list</span>
             </Button>
 
             <Tabs
@@ -105,8 +105,8 @@ const StoreLeftCol = (props: Props) => {
                 orientation="vertical"
                 className={classes.tabs}
             >
-                <Tab label="店家介紹"/>
-                <Tab label="食記/評論"/>
+                <Tab label="Store introduction"/>
+                <Tab label="Reviews"/>
             </Tabs>
 
             <div id="map" className={classes.storeMap}>
@@ -130,7 +130,7 @@ const StoreLeftCol = (props: Props) => {
             </div>
             <Box mt={2}>
                 <Typography color={'textSecondary'} variant={'body2'}>
-                    地址：
+                    Address：
                     <a className={classes.addressLink} href={`https://www.google.com.tw/maps/place/${store.address}`}>
                         {store.address}
                     </a>

@@ -56,10 +56,10 @@ const FollowBtn = (props: Props) => {
                     requestBody: {},
                 };
                 await mutateAsync(reqProps);
-                showSnackBar(`成功取消追蹤: ${store.name}`, 'default');
+                showSnackBar(`Unfollow: ${store.name}`, 'default');
                 setIsUserFollowStore(!isUserFollowStore);
             } catch (e) {
-                showSnackBar(`取消追蹤: ${store.name} 失敗`, 'error')
+                showSnackBar(`Unfollow: ${store.name} fail`, 'error')
             }
 
         } else {
@@ -69,10 +69,10 @@ const FollowBtn = (props: Props) => {
                     requestBody: {},
                 };
                 await mutateAsync(reqProps);
-                showSnackBar(`成功追蹤: ${store.name}`, 'success');
+                showSnackBar(`Following: ${store.name}`, 'success');
                 setIsUserFollowStore(!isUserFollowStore);
             } catch (e) {
-                showSnackBar(`追蹤: ${store.name} 失敗`, 'error')
+                showSnackBar(`Following: ${store.name} failed`, 'error')
             }
         }
 
@@ -84,7 +84,7 @@ const FollowBtn = (props: Props) => {
                 <Button size={"medium"} variant="outlined" className={classes.followBg}
                         onClick={() => handleFollowBtnClick()}>
                     <LocalOfferRoundedIcon className={classes.follow}/>
-                    <span className={classes.follow}>追蹤</span>
+                    <span className={classes.follow}>Following</span>
                 </Button>
             }
             {
@@ -92,7 +92,7 @@ const FollowBtn = (props: Props) => {
                 <Button size={"medium"} variant="outlined" className={classes.followBg}
                         onClick={() => handleFollowBtnClick()}>
                     <LocalOfferRoundedIcon className={classes.unfollow}/>
-                    <span className={classes.unfollow}>已追蹤</span>
+                    <span className={classes.unfollow}>Followed</span>
                 </Button>
             }
         </>

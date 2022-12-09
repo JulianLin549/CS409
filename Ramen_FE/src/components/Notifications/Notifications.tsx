@@ -80,11 +80,11 @@ const Notifications = () => {
 
     return data?.notifications ? <Box mb={5}>
 
-        <p className={classes.header}>通知</p>
+        <p className={classes.header}>Notification</p>
         {
             data.notifications.length > 0 ? data.notifications.map((notification: INotification) => {
                 return <NotificationStrip notification={notification}/>
-            }) : <p className={classes.text}>沒有追蹤清單</p>
+            }) : <p className={classes.text}>No Notification</p>
         }
         <CustomPagination pages={data.pages} page={page} handlePageChange={handlePageChange}/>
     </Box> : null

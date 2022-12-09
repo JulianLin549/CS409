@@ -40,7 +40,7 @@ const UserReview = (props: Props) => {
     if (!data?.review) return (
         <Box mt={1}>
             <Typography variant="body1">
-                您尚未評論：
+                You haven't reviewed：
             </Typography>
             <Button
                 size="large"
@@ -51,7 +51,7 @@ const UserReview = (props: Props) => {
                 to={`/stores/${storeId}/newReview`}
                 className={classes.add}
             >
-                新增 食記/評論
+                Add a review.
             </Button>
         </Box>
     )
@@ -59,7 +59,7 @@ const UserReview = (props: Props) => {
     return (
         <Box mt={1}>
             <Typography variant="body1">
-                您的評論：
+                Your comment:
             </Typography>
             <Review review={data.review} key={data.review._id} storeId={storeId}/>
         </Box>

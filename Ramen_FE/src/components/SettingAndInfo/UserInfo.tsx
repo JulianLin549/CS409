@@ -2,7 +2,7 @@
 const UserInfo = () => {
     return (
         <div>
-            個人資料
+            Personal Information
         </div>
     );
 };

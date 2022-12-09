@@ -71,10 +71,10 @@ const DeleteCommentModal = (props: Props) => {
                 requestBody: {commentId: commentId, storeId: storeId},
             };
             await mutateAsync(reqProps);
-            showSnackBar(`成功刪除: ${commentText}`, 'success');
+            showSnackBar(`Success: ${commentText}`, 'success');
             history.go(0);
         } catch (e) {
-            showSnackBar(`刪除: ${commentText} 失敗`, 'error')
+            showSnackBar(`Deletion: ${commentText} Failed`, 'error')
         } finally {
             props.onClose();
         }
@@ -86,7 +86,7 @@ const DeleteCommentModal = (props: Props) => {
     return (
         <Dialog open={props.open} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
             <div className={classes.dialog}>
-                <DialogTitle id="form-dialog-title">{`刪除留言`}</DialogTitle>
+                <DialogTitle id="form-dialog-title">{`Delete diaglog`}</DialogTitle>
                 <DialogContent>
                     <DialogContentText className={classes.storeNameOuter}>
                         <span className={classes.storeName}>{commentText}</span>
@@ -94,10 +94,10 @@ const DeleteCommentModal = (props: Props) => {
                 </DialogContent>
                 <DialogActions className={classes.bottom}>
                     <Button variant="outlined" color="secondary" onClick={handleDeleteComment}>
-                        刪除
+                        Delete
                     </Button>
                     <Button variant='text' onClick={props.onClose} className={classes.btn}>
-                        取消
+                        Cancel
                     </Button>
                 </DialogActions>
             </div>

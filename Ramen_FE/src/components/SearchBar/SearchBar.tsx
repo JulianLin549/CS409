@@ -56,7 +56,7 @@ const SearchBar = (props: Props) => {
                 <InputBase
                     name="search"
                     className={classes.input}
-                    placeholder="搜尋關鍵字"
+                    placeholder="Search"
                     autoComplete='off'
                 />
                 <Divider className={classes.divider} orientation="vertical"/>

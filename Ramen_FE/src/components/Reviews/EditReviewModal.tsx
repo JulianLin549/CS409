@@ -58,12 +58,12 @@ const EditReviewModal = (props: Props) => {
 
     const handleEditReview = async () => {
         if (rating === null) {
-            showSnackBar(`評分不可為空`, 'error');
+            showSnackBar(`Rating empty`, 'error');
             return;
         }
         let review = window.localStorage.getItem(storageKey);
         if (review === null || review === "<p><br></p>") {
-            showSnackBar(`評論不可為空！`, 'error');
+            showSnackBar(`Review empty！`, 'error');
             return;
         }
         const reqProps = {
@@ -75,11 +75,11 @@ const EditReviewModal = (props: Props) => {
         let response = await mutateAsync(reqProps);
 
         if (response.status === 200) {
-            showSnackBar(`編輯評論成功`, 'success');
+            showSnackBar(`Edited review`, 'success');
             window.localStorage.removeItem(storageKey);
             history.go(0)
         } else {
-            showSnackBar(`編輯評論失敗`, 'error');
+            showSnackBar(`Failed to edit the review`, 'error');
             return new Error()
         }
         props.onClose();
@@ -102,13 +102,13 @@ const EditReviewModal = (props: Props) => {
                         <CloseIcon/>
                     </IconButton>
                     <h3>
-                        編輯評論
+                        Edit the review
                     </h3>
                 </Box>
 
                 <Box mt={2} mb={3}>
                     <Typography variant="body1" color="textPrimary" component="p" className={classes.ratingTitle}>
-                        評分：
+                        Rating：
                     </Typography>
                     <Rating
                         name="customized-empty"
@@ -120,7 +120,7 @@ const EditReviewModal = (props: Props) => {
                         emptyIcon={<StarBorderIcon fontSize="inherit"/>}
                     />
                     {!rating && <Typography variant="caption" component="p" className={classes.ratingText}>
-                        請輸入評分
+                        Input the rating
                     </Typography>}
                 </Box>
                 <QuillEditor
@@ -129,11 +129,11 @@ const EditReviewModal = (props: Props) => {
                 />
                 <Box mt={2} mb={2}>
                     <Button variant="outlined" color="primary" className={classes.submitBtn} onClick={handleEditReview}>
-                        送出
+                        Submit
                     </Button>
                     <Button variant="outlined" color="default" className={classes.cancelBtn}
                             onClick={handleDialogClose}>
-                        取消
+                        Cancel
                     </Button>
                 </Box>
             </Box>

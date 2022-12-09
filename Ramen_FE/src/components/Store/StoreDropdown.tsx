@@ -70,13 +70,13 @@ const StoreDropdown = (props: Props) => {
                     <ListItemIcon className={classes.listItemIcon}>
                         <EditIcon/>
                     </ListItemIcon>
-                    <ListItemText primary="編輯"/>
+                    <ListItemText primary="Edit"/>
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={handleDeleteBtnClick}>
                     <ListItemIcon className={classes.listItemIcon}>
                         <DeleteForeverIcon/>
                     </ListItemIcon>
-                    <ListItemText primary="刪除"/>
+                    <ListItemText primary="Delete"/>
                 </MenuItem>
             </StyledMenu>
             <DeleteModal

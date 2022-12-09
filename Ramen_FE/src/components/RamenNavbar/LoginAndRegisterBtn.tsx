@@ -19,7 +19,7 @@ const LoginAndRegisterBtn = () => {
             className={classes.login}
             to="/login"
         >
-            登入
+            Login
         </Button>
     );
 };

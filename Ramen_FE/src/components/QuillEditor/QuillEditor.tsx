@@ -51,14 +51,14 @@ const QuillEditor = (props: Props) => {
             const response = await mutateAsync(reqProps);
             if (response.status === 200) {
                 const data = response.data?.data;
-                showSnackBar(`上傳照片成功`, 'success');
+                showSnackBar(`Uploaded photo`, 'success');
                 return data.imageUrl;
             } else {
                 return new Error()
             }
 
         } catch (error) {
-            showSnackBar(`上傳圖片失敗`, 'error');
+            showSnackBar(`Failed to upload photo`, 'error');
         }
     }
 
@@ -72,7 +72,7 @@ const QuillEditor = (props: Props) => {
         input.click();
         input.onchange = async () => {
             if (!input?.files?.[0]) {
-                return showSnackBar(`不是正確的圖片`, 'error');
+                return showSnackBar(`Incorrect photo`, 'error');
             }
             const file = input.files[0];
             if (/^image\//.test(file.type)) {
@@ -84,13 +84,13 @@ const QuillEditor = (props: Props) => {
                     editor?.insertEmbed(range.index, 'image', imageUrl, "user");
                     editor?.setSelection(range.index + 1, "API")
                 } catch (e) {
-                    return showSnackBar(`上傳圖片出現問題`, 'error');
+                    return showSnackBar(`Failed to upload the photo`, 'error');
                 } finally {
                     setIsUpoading(false)
                 }
 
             } else {
-                showSnackBar(`僅能上傳圖片檔案`, 'error');
+                showSnackBar(`Failed`, 'error');
             }
         };
     }
@@ -122,7 +122,7 @@ const QuillEditor = (props: Props) => {
             <Dialog open={isUploading}>
                 <DialogContent>
                     <DialogContentText id="uploading">
-                        上傳圖片中，請稍等
+                        Uploading...
                         <LoadingIcon/>
                     </DialogContentText>
                 </DialogContent>

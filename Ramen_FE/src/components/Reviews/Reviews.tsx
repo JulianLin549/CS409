@@ -65,7 +65,7 @@ const Reviews = (props: Props) => {
     if (status === "error") {
         return <div>{error?.message}</div>;
     }
-    if (!data?.reviews) return <div>系統無法取得評論，請重新整理</div>
+    if (!data?.reviews) return <div>System failed to retrieve reviews.</div>
 
     const reviews = data.reviews.filter(review => review.author._id !== user?._id);
 
@@ -83,7 +83,7 @@ const Reviews = (props: Props) => {
                     </div>
                     :
                     <Typography variant="subtitle1" className={classes.noReview}>
-                        沒有其他評論
+                        No other reviews.
                     </Typography>
                 }
             </Box>

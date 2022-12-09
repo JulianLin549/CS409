@@ -52,7 +52,7 @@ const FollowingStrip = (props: Props) => {
         <List className={classes.root}>
             <ListItem button component={Link} to={`/stores/${store._id}`}>
                 <ListItemText primary={store.name}
-                              secondary={`更新於 ${dt.toRelative()}`}/>
+                              secondary={`Updated ${dt.toRelative()}`}/>
                 <ListItemSecondaryAction>
                     <FollowBtn store={store}/>
                 </ListItemSecondaryAction>

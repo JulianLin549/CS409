@@ -67,7 +67,7 @@ const Comments = (props: Props) => {
             return <div>{error?.message}</div>;
         }
 
-        if (!data?.comments) return <div>系統無法取得留言，請重新整理</div>
+        if (!data?.comments) return <div>Fail.</div>
 
 
         return (
@@ -87,7 +87,7 @@ const Comments = (props: Props) => {
                         </div>
                         :
                         <Typography variant="subtitle1" className={classes.noComment}>
-                            沒有留言
+                            No Comments.
                         </Typography>
                     }
                 </Box>

@@ -106,7 +106,7 @@ const MetroTag = (props: Props) => {
             break
     }
 
-    const distance = station.distance > 1 ? `${station.distance} 公里` : `${station.distance * 1000} 公尺`
+    const distance = station.distance > 1 ? `${station.distance} km` : `${station.distance * 1000} meters`
 
 
     const Line = () => {
@@ -124,12 +124,12 @@ const MetroTag = (props: Props) => {
     return station && <Box mt={1} className={classes.bg}>
         <div className={classes.container}>
 
-            <span className={classes.textStation}>{station.name}站</span>
+            <span className={classes.textStation}>{station.name} stop</span>
             <div className={classes.container}>
                 <img className={classes.logoIcon} src={metroIcon} alt="alt"/>
                 <Line/>
             </div>
-            <span className={classes.textDistance}>距離 {distance}</span>
+            <span className={classes.textDistance}>Distance {distance}</span>
         </div>
     </Box>
 

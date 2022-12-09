@@ -2,7 +2,7 @@
 const UserSetting = () => {
     return (
         <div>
-            設定
+            Setting
         </div>
     );
 };

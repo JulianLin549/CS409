@@ -73,9 +73,9 @@ const DeleteModal = (props: Props) => {
             };
             await mutateAsync(reqProps);
             history.push('/stores')
-            showSnackBar(`成功刪除: ${storeName}`, 'success');
+            showSnackBar(`Successfully deleted: ${storeName}`, 'success');
         } catch (e) {
-            showSnackBar(`刪除: ${storeName} 失敗`, 'error')
+            showSnackBar(`Deletion: ${storeName} Failed`, 'error')
         } finally {
             props.onClose();
         }
@@ -96,17 +96,17 @@ const DeleteModal = (props: Props) => {
     return (
         <Dialog open={props.open} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
             <div className={classes.dialog}>
-                <DialogTitle id="form-dialog-title">{`刪除店家: ${storeName}`}</DialogTitle>
+                <DialogTitle id="form-dialog-title">{`Delete the store: ${storeName}`}</DialogTitle>
                 <DialogContent>
                     <DialogContentText className={classes.content}>
-                        {`請問您是否確定要刪除店家？系統將會把店家相關留言以及食記/評論一併刪除。此步驟無法復原！若了解風險請於下方輸入欄輸入完整的店家名稱以刪除：`}
+                        {`Input the complete store name to delete：`}
                     </DialogContentText>
                     <DialogContentText className={classes.storeNameOuter}>
                         <span className={classes.storeName}>{storeName}</span>
                     </DialogContentText>
                     <TextField
                         id="storeName"
-                        label={`請於此輸入完整店家名稱`}
+                        label={`your store name`}
                         fullWidth
                         margin="normal"
                         variant="outlined"
@@ -118,10 +118,10 @@ const DeleteModal = (props: Props) => {
                 </DialogContent>
                 <DialogActions className={classes.bottom}>
                     <Button variant="outlined" color="secondary" disabled={!isInputMatch} onClick={handleDeleteStore}>
-                        我了解風險並刪除店家
+                        I understand the consequences and I wish to delete the store.
                     </Button>
                     <Button variant='text' onClick={props.onClose} className={classes.btn}>
-                        取消
+                        Cancel
                     </Button>
                 </DialogActions>
             </div>
