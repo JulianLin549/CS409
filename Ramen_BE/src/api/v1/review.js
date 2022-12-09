@@ -32,7 +32,7 @@ router.post('/image', middleware.jwtAuth, getImage, async (req, res) => {
         return response.success(res, {imageUrl: imgurURL})
     } catch (err) {
         log.error(err);
-        return response.internalServerError(res, "上傳圖片失敗")
+        return response.internalServerError(res, "Failed to upload the photo")
     }
 })
 
@@ -50,7 +50,7 @@ router.post('/', middleware.jwtAuth, dataValidate.addReview, async (req, res) =>
         await reviewService.addReview(storeId, userId, review, rating);
         response.success(res, "success");
     } catch (err) {
-        response.internalServerError(res, `無法新增評論`)
+        response.internalServerError(res, `Failed to add a new review`)
     }
 
 })
@@ -64,7 +64,7 @@ router.put('/', middleware.jwtAuth, middleware.isReviewOwner, dataValidate.editR
         await reviewService.updateReview(foundReview, newText, newRating, storeId)
         response.success(res, "success");
     } catch (err) {
-        response.internalServerError(res, "無法編輯評論")
+        response.internalServerError(res, "Failed to edit the review")
     }
 })
 
@@ -78,7 +78,7 @@ router.delete('/', middleware.jwtAuth, middleware.isReviewOwner, dataValidate.de
             await reviewService.deleteReview(storeId, reviewId, userId);
             response.success(res, "success");
         } catch (err) {
-            response.internalServerError(res, `無法刪除留言`)
+            response.internalServerError(res, `Failed to delete the review`)
         }
     }
 )

@@ -116,7 +116,7 @@ const StoreLeftCol = (props: Props) => {
                     width="100%"
                     height="100%"
                     mapStyle="mapbox://styles/mapbox/streets-v10"
-                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                    mapboxApiAccessToken="pk.eyJ1IjoianVsaWFubGluNTQ5IiwiYSI6ImNrbXp4djVxYzAyanYycWw4aXh0eXFnMnMifQ.Y4KdMejW8JbEY8QJlCUfqQ"
                     doubleClickZoom={false}
                     className={classes.map}
                 >

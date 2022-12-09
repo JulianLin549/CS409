@@ -64,7 +64,7 @@ router.get('/userInfo', middleware.jwtAuth,
             let {password, __v, ...user} = req.user._doc; //remove password and other sensitive info from user object
             response.success(res, user);
         }
-        response.notFound(res, "找不到使用者");
+        response.notFound(res, "Failed to find the user");
     });
 
 router.get('/unReadNotiCount', middleware.jwtAuth,
@@ -82,7 +82,7 @@ router.get('/unReadNotiCount', middleware.jwtAuth,
                 res.write("data: " + count + "\n\n")
             }, 1000 * 10)
         } else {
-            response.notFound(res, "找不到使用者");
+            response.notFound(res, "Failed to find the user");
         }
     });
 
@@ -105,7 +105,7 @@ router.get('/notifications', middleware.jwtAuth, async (req, res, next) => {
             }
             return null;
         } else {
-            response.notFound(res, "找不到使用者");
+            response.notFound(res, "Failed to find the user");
         }
     } catch (error) {
         log.error(error);
@@ -126,7 +126,7 @@ router.get('/followedStore', middleware.jwtAuth, async (req, res, next) => {
                 pages: Math.ceil(count / perPage),
             });
         } else {
-            return response.notFound(res, "找不到使用者");
+            return response.notFound(res, "Failed to find the user");
         }
 
     } catch (error) {
@@ -147,7 +147,7 @@ router.get('/reviewedStore', middleware.jwtAuth, async (req, res, next) => {
                 pages: Math.ceil(count / perPage),
             });
         } else {
-            return response.notFound(res, "找不到使用者");
+            return response.notFound(res, "Failed to find the user");
         }
 
     } catch (error) {

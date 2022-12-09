@@ -17,7 +17,7 @@ router.post('/', middleware.jwtAuth, body('comment').not().isEmpty().trim().esca
             await commentService.addComment(storeId, commentText, userId)
             response.success(res, "success");
         } catch (err) {
-            response.internalServerError(res, `無法新增留言`)
+            response.internalServerError(res, `Failed to add the comment`)
         }
     })
 
@@ -32,7 +32,7 @@ router.put('/', middleware.jwtAuth, middleware.isCommentOwner, body('comment').n
             await comment.save();
             response.success(res, "success");
         } catch (err) {
-            response.internalServerError(res, "無法編輯留言")
+            response.internalServerError(res, "Failed to edit the comment")
         }
 
     })
@@ -45,7 +45,7 @@ router.delete('/', middleware.jwtAuth, middleware.isCommentOwner, dataValidate.d
             await commentService.deleteComment(storeId, commentId)
             response.success(res, "success");
         } catch (err) {
-            response.internalServerError(res, `無法刪除留言`)
+            response.internalServerError(res, `Failed to delete the comment`)
         }
     })
 

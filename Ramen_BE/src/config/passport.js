@@ -24,7 +24,7 @@ module.exports = (passport) => {
             }
         } catch (err) {
             log.error(err);
-            return done(err, false, { message: '系統出現問題，請稍後再試。' });
+            return done(err, false, { message: 'Error. Please retry.' });
         }
     }
 
@@ -38,7 +38,7 @@ module.exports = (passport) => {
             return done(null, user);
         } catch(err) {
             log.error(err);
-            return done(err, false, { message: '系統出現問題，請稍後再試。' });
+            return done(err, false, { message: 'Error. Please retry.' });
         }
     }
 

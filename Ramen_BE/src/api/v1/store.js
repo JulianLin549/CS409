@@ -35,7 +35,7 @@ router.get('/:storeId',middleware.jwtAuth, dataValidate.storeId,  async (req, re
         const store = await storeService.getStoreDetailById(req.params.storeId)
 
         if (!store) {
-            return response.notFound(res, "找不到店家");
+            return response.notFound(res, "Failed to find the store");
         }
 
         let isStoreOwner = userService.isUserStoreOwner(req.user, storeId)
@@ -80,7 +80,7 @@ router.get('/:storeId/getComments', middleware.jwtAuth, async (req, res) => {
 
     }  catch (error) {
         log.error(error);
-        return response.internalServerError(res, `無法取得店家留言`);
+        return response.internalServerError(res, `Failed to retrieve the comment`);
     }
 
 })
@@ -99,7 +99,7 @@ router.get('/:storeId/getReviews', middleware.jwtAuth, async (req, res) => {
 
     }  catch (error) {
         log.error(error);
-        return response.internalServerError(res, `無法取得店家留言`);
+        return response.internalServerError(res, `Failed to retrieve the review`);
     }
 })
 
@@ -134,7 +134,7 @@ router.delete('/:storeId', middleware.jwtAuth, middleware.isStoreOwner,
             await storeService.deleteStore(storeId)
             return response.success(res);
         } catch (error) {
-            return response.internalServerError(res, `無法刪除店家: ${storeId}, ${error.message}`)
+            return response.internalServerError(res, `Failed to delete the store: ${storeId}, ${error.message}`)
         }
 
     })

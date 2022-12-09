@@ -30,7 +30,7 @@ router.post('/registerStoreOwner', middleware.jwtAuth, middleware.isAdmin, dataV
                 {session: session}
             );
 
-            if (!storeRelation || !user) throw new Error("找不到使用者或是店家")
+            if (!storeRelation || !user) throw new Error("Failed to find the user or owner")
 
             await session.commitTransaction()
             session.endSession()
@@ -66,7 +66,7 @@ router.delete('/removeStoreOwner', middleware.jwtAuth, middleware.isAdmin, dataV
                 {multi: false, session: session}
             );
 
-            if (!storeRelation || !user) throw new Error("找不到使用者或是店家")
+            if (!storeRelation || !user) throw new Error("Failed to find the user or owner")
 
 
             await session.commitTransaction()
