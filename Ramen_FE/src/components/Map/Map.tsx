@@ -47,7 +47,7 @@ const Map = () => {
     const [mapBound, setMapBound] = useState<MapBound | null>(null);
     const [maxSeenBound, setMaxSeenBound] = useState<MapBound>({N: -90, S: 90, E: -180, W: 180});
     const [searchBtnShow, setSearchBtnShow] = useState<boolean>(false);
-    const defaultViewport = {latitude: 25.046, longitude: 121.5178, zoom: 14};
+    const defaultViewport = {latitude: 40.1104873, longitude: -88.2335174, zoom: 14};
     const [viewport, setViewport] = useState<any>(defaultViewport);
     const [flag, setFlag] = useState<boolean>(true);
     const geolocateControlStyle = {
@@ -89,6 +89,7 @@ const Map = () => {
     const handleSearchBtnClick = () => {
         setSearchBtnShow(false);
         setMapBound(maxSeenBound);
+        console.log(maxSeenBound)
     }
 
     const flyTo = (lng: number, lat: number) => {

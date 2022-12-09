@@ -8,8 +8,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import StyledMenu from "../StyledMenu/StyledMenu";
-import KaohsiungMetroIcon from '../../static/kaohsiung_metro_logo_gray.svg';
-import TaipeiMetroIcon from '../../static/taipei_metro_logo_gray.svg';
 import TaiwanIcon from '../../static/taiwan.svg';
 
 
@@ -51,9 +49,6 @@ const SubCategorySection = () => {
     };
     return (
         <>
-            <Button component={RouterLink} className={classes.selection} to="/storesAround">
-                附近店家
-            </Button>
             <Divider className={classes.divider} orientation="vertical"/>
 
             <Button component={RouterLink} className={classes.selection} to="/stores">
@@ -77,20 +72,8 @@ const SubCategorySection = () => {
                     <ListItemIcon className={classes.listItemIcon}>
                         <img className={classes.imageIcon} src={TaiwanIcon} alt={"Taiwan icon"}/>
                     </ListItemIcon>
-                    <ListItemText primary="臺灣地圖"/>
+                    <ListItemText primary="地圖"/>
                 </MenuItem>
-                {/* <MenuItem component={RouterLink} to="/map/TaipeiMetro" onClick={handleClose}>
-                    <ListItemIcon className={classes.listItemIcon}>
-                        <img className={classes.imageIcon} src={TaipeiMetroIcon} alt={"Taipei MetroMap icon"}/>
-                    </ListItemIcon>
-                    <ListItemText primary="臺北捷運地圖"/>
-                </MenuItem>
-                <MenuItem component={RouterLink} to="/map/KaohsiungMetro" onClick={handleClose}>
-                    <ListItemIcon className={classes.listItemIcon}>
-                        <img className={classes.imageIcon} src={KaohsiungMetroIcon} alt={"Kaohsiung MetroMap icon"}/>
-                    </ListItemIcon>
-                    <ListItemText primary="高雄捷運地圖"/>
-                </MenuItem> */}
             </StyledMenu>
         </>
     );
