@@ -9,21 +9,14 @@ const express = require('express'),
     config = require('./config/global-config'),
     cookieSession = require('cookie-session'),
     helmet = require('helmet'),
-    rateLimit = require('express-rate-limit'),
     log = require('./modules/logger'),
     cors = require('cors'),
     cookieParser = require('cookie-parser'),
-    morgan = require('morgan'),
-    accessLogStream = require('./modules/accesslogStream'),
     errorhandler = require('errorhandler'),
-    response = require('./modules/responseMessage'),
-    promBundle = require("express-prom-bundle"),
-    metricsMiddleware = promBundle({includeMethod: true});
+    response = require('./modules/responseMessage');
 
 
 const app = express();
-app.use(metricsMiddleware);
-app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', {stream: accessLogStream}))
 const corsOptions = {
     origin: process.env.FE_DOMAIN,
     credentials: true,            //access-control-allow-credentials:true
@@ -36,7 +29,6 @@ app.use(helmet({contentSecurityPolicy: isProduction ? undefined : false}));
 require('./config/passport')(passport);
 require("./db/connectDB");
 require('./models/registerModel');
-require("./config/smtp");
 
 app.set('trust proxy', 1) // trust first proxy
 
@@ -69,16 +61,6 @@ if (!isProduction) {
 app.use(function (err, req, res, next) {
     response.internalServerError(res, err.message);
 });
-
-//rate limit for each ip
-const limiter = rateLimit({
-    windowMs: config.RATE_LIMIT_WINDOW,
-    max: config.RATE_LIMIT, // 限制請求數量
-    handler: (req, res) => {
-        response.tooManyRequests(res, "Too many request! Please try again later.")
-    },
-})
-app.use(limiter)
 
 
 //api routes
