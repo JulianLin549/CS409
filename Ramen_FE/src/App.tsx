@@ -12,8 +12,6 @@ import Store from "./components/Store/Store";
 import Footer from "./components/Footer/Footer";
 import RamenNavbar from './components/RamenNavbar/RamenNavbar'
 import Landing from "./components/Landing/Landing";
-import TaipeiMetro from "./components/MetroMap/TaipeiMetro";
-import KaohsiungMetro from "./components/MetroMap/KaohsiungMetro";
 import {makeStyles} from "@material-ui/core/styles";
 import Map from "./components/Map/Map";
 import LoginPage from "./components/Login/LoginPage";
@@ -55,10 +53,10 @@ function App() {
                 </NotificationProvider>
                 <Switch>
                     {/* landing page only */}
-                    <Route exact path="/">
+                    {/* <Route exact path="/">
                         <Landing/>
                         <Footer/>
-                    </Route>
+                    </Route> */}
                     <Route>
                         <Container className={classes.container}>
 
@@ -66,17 +64,8 @@ function App() {
                                 <Route exact path="/stores">
                                     <StoreIndex/>
                                 </Route>
-                                <Route exact path="/test">
-                                    <UserFollowingPage/>
-                                </Route>
                                 <Route exact path="/map">
                                     <Map/>
-                                </Route>
-                                <Route path="/map/TaipeiMetro">
-                                    <TaipeiMetro/>
-                                </Route>
-                                <Route path="/map/KaohsiungMetro">
-                                    <KaohsiungMetro/>
                                 </Route>
 
                                 <Route path="/login">
@@ -105,6 +94,7 @@ function App() {
                                 <Route exact path="/notFound" component={NotFound}/>
                                 <Route exact path="/unAuthorized" component={UnAuthorized}/>
                                 <Route exact path="/error" component={ErrorPage}/>
+                                <Redirect from='/' to="/map"/>
                                 <Redirect from='*' to="/notFound"/>
                                 <Route component={NotFound} />
                             </Switch>
