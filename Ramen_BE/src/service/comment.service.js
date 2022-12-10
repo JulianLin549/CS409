@@ -23,7 +23,7 @@ commentService.addComment = async (storeId, commentText, userId) => {
         const storeRelation = await storeService.addStoreComment(storeId, newCommentId, session);
 
         if (!storeRelation) {
-            throw new Error("店家不存在")
+            throw new Error("Store does not exist.")
         }
 
         await session.commitTransaction();
@@ -47,7 +47,7 @@ commentService.deleteComment = async (storeId, commentId) => {
         const storeRelation = await storeService.removeStoreComment(storeId, commentId, session);
 
         if (!storeRelation) {
-            throw new Error("店家不存在")
+            throw new Error("Store does not exist.")
         }
 
         await session.commitTransaction();

@@ -31,7 +31,7 @@ const StoreIntro = (props: Props) => {
             <Box mt={5} mb={2}>
                 <Divider className={classes.divider} orientation="horizontal" variant="fullWidth"/>
 
-                <h3 className={classes.title}>介紹</h3>
+                <h3 className={classes.title}>Intro</h3>
 
                 <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(store.descriptionHTML)}}/>
                 <Divider className={classes.divider} orientation="horizontal" variant="fullWidth"/>

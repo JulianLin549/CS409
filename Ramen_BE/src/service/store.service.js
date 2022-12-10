@@ -200,7 +200,7 @@ storeService.deleteStore = async (storeId) => {
         const storeRelations = store[0].storeRelations;
 
         if (!store || !storeRelations) {
-            throw new Error("店家不存在");
+            throw new Error("Store does not exist");
         }
 
         const reviewService = require('../service/review.service');

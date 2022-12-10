@@ -10,7 +10,7 @@ metroService.getStoresNearMetro = async (city, stationCode, maxDistance) => {
         let metro = await metroRepository.findOne(city, stationCode)
 
         if (!metro) {
-            throw new Error(`找不到捷運站${stationCode}`);
+            throw new Error(`Cannot find station ${stationCode}`);
         }
 
         const metroCoords = metro.location.coordinates;
@@ -32,7 +32,7 @@ metroService.getMetroCloseToStore = async (storeId, maxDistance) => {
         const foundStore = await storeService.getStoreById(storeId);
 
         if (!foundStore) {
-            throw new Error(`找不到店家${storeId}`)
+            throw new Error(`Cannot find store ${storeId}`)
         }
 
         const storeCoords = foundStore.location.coordinates;

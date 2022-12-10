@@ -77,7 +77,7 @@ const UserReviewed = () => {
     const {data} = useFetch<Stores>(options);
     return data?.reviews ?
         <Box mb={5}>
-            <p className={classes.header}>已評論店家</p>
+            <p className={classes.header}>Reviewed Stores</p>
             {
                 data.reviews.length > 0 ? data.reviews.map((review: IReview) => {
                     return <ReviewStrip review={review}/>

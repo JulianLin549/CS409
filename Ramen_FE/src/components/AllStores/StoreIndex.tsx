@@ -47,12 +47,12 @@ const StoreIndex = () => {
     }
     if (data?.stores?.length === 0) {
         return searchInput ? <div>
-            {`搜尋"${searchInput}"沒有找到店家`}
+            {`Did not find store using input:"${searchInput}"`}
             <Button variant="outlined" className="goBack-btn" onClick={() => setSearchInput(null)}>
                 <ArrowLeftIcon/>
-                返回店家列表
+                Go back to store list
             </Button>
-        </div> : <div>沒有找到店家</div>
+        </div> : <div>Did not find store</div>
     }
 
     return data ?
