@@ -64,6 +64,10 @@ app.use(function (err, req, res, next) {
 
 
 //api routes
+app.use('/test',(req, res)=>{
+    res.send("Hello world!!")
+})
+
 app.use('/api/v1', require('./api/v1/api-router'));
 
 app.get('/:else', (req, res) => {

@@ -34,6 +34,8 @@ const MapContent = (props:Props) => {
         requestQuery: {...mapBound, search: searchInput}
     }
 
+    
+
     const { data:stores, status, error } = useFetch<IStore[]>(options);
 
 
