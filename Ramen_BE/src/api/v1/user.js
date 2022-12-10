@@ -25,6 +25,13 @@ router.post('/login',
                 return response.unAuthorized(res, "Wrong username or password!");
             }
             const token = await userService.signToken(user);
+            res.cookie('access_token',token, { 
+                maxAge: 900000, 
+                httpOnly: true,
+                sameSite : "none",
+                secure: true,
+                });
+            //console.log(token);
             response.success(res, {user, token});
         } catch (error) {
             log.info(error)
@@ -50,6 +57,12 @@ router.post('/signup',
             })
             user = await user.save();
             const token = await userService.signToken(user);
+            res.cookie('access_token',token, { 
+                maxAge: 900000, 
+                httpOnly: true,
+                sameSite : "none",
+                secure: true,
+                });
             response.success(res, {user, token});
         } catch (error) {
             log.info(error)

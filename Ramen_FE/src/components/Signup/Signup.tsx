@@ -31,6 +31,7 @@ const Login = (props: Props) => {
             let options = {
                 method: 'post',
                 url: url,
+                withCredentials: true,
                 data: payload,
                 config: {headers: {'Content-Type': 'application/json'}}
             };

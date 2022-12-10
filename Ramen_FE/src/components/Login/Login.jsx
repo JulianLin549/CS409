@@ -31,6 +31,7 @@ const Login = (props: Props) => {
             let payload = { username, password };
             let options = {
                 method: 'post',
+                withCredentials: true,
                 url: url,
                 data: payload,
                 config: {headers: {'Content-Type': 'application/json'}}
@@ -38,7 +39,8 @@ const Login = (props: Props) => {
             let serverRes = await axios(options);
             let loginUser = serverRes.data.data.user;
             setUser(loginUser);
-            Cookies.set('access_token', serverRes.data.data.token);
+            //console.log(serverRes);
+            //Cookies.set('access_token', serverRes.data.data.token);
             window.localStorage.setItem("current_user", JSON.stringify(loginUser));
         } catch (e) {
             console.log("error:", e);
